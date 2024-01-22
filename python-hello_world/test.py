@@ -22,3 +22,6 @@ word = "Holberton is a school"
 print(f"This is the first 3 letters : {word[:3]}")
 print(f"This is the 2 last letters : {word[19:]}")
 print(f"This is the middle word : {word[10:-9]}")
+
+# Print the Zen of Python :
+import this
