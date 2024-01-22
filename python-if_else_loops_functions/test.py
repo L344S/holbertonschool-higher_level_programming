@@ -20,11 +20,15 @@ for i in range(97, 123):  # print a to z
     print(i, end='')    # (end='') print without new line
 
 # Print a suite of elements except some :
-for i in range(0, 10):  # print 0 to 9
-    if i != 4 and i != 6:  # if i is not 4 or 6
-        print(i)  # print i without new line
-
 for i in range(97, 123):  # print a to z
     i = chr(i)  # convert int to char
     if i != 'q' and i != 'e':  # if i (letter) is not 'q' or 'e'
         print(i, end='')    # (end='') print without new line
+
+for i in range(0, 10):  # print 0 to 9
+    if i != 4 and i != 6:  # if i is not 4 or 6
+        print(i)  # print i without new line
+
+# Print the hexadecimal value of a number :
+n = 98
+print(hex(n))  # print hexadecimal value of n
