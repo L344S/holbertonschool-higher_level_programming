@@ -26,5 +26,5 @@ for i in range(0, 10):  # print 0 to 9
 
 for i in range(97, 123):  # print a to z
     i = chr(i)  # convert int to char
-    if i != 'q' and i != 'e':  # if i is not 'q' or 'e'
+    if i != 'q' and i != 'e':  # if i (letter) is not 'q' or 'e'
         print(i, end='')    # (end='') print without new line
