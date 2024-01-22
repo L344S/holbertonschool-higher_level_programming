@@ -32,3 +32,7 @@ for i in range(0, 10):  # print 0 to 9
 # Print the hexadecimal value of a number :
 n = 98
 print(hex(n))  # print hexadecimal value of the variable n
+
+# Print a number with a specific format (two digits) :
+n = 1
+print(f"{n:02d}")
