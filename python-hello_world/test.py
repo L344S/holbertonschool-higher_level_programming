@@ -2,9 +2,13 @@
 
 # Variable declaration :
 number = 24
+pi = 3.14159
 
 # Print a basic string :
 print("Hello World !")
 
 # Print a string with a variable without casting (using f-string) :
 print(f"You're {number} years old")
+
+# Print a float with a variable without casting (using f-string) :
+print(f"Pie value is approximately {pi:.2f}")
