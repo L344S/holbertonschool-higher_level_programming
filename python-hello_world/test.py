@@ -24,4 +24,4 @@ print(f"This is the 2 last letters : {word[19:]}")
 print(f"This is the middle word : {word[10:-9]}")
 
 # Print the Zen of Python :
-import this
+import this # print automatically the Zen of Python
