@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 
 from sys import argv  # import module argv from sys
-
-if len(argv) == 1:  # if no arguments
-    print("0 arguments.")  # print there are no arguments
-elif len(argv) == 2:  # if 1 argument
-    print(f"{len(argv) - 1} argument:")  # print the number of arguments
-else:  # if more than 1 argument
-    print(f"{len(argv) - 1} arguments:")  # print the number of arguments
-
-for i in range(1, len(argv)):  # for loop through the arguments list
-    print(f"{i}: {argv[i]}")  # print the index and the argument
+if __name__ == '__main__':  # makes sure the code is not executed when imported
+    # initialize args starting from the 2nd argument (1st is the script name)
+    args = argv[1:]
+    if (len(args) == 0):  # if no arguments
+        print("0 arguments.")
+    elif (len(args) == 1):  # if 1 argument
+        print("1 argument:")
+    else:  # if more than 1 argument
+        print(f"{len(args)} arguments:")
+    for i in range(len(args)):  # for loop through the arguments list
+        print(f"{i + 1}: {args[i]}")  # print the argument index and value
