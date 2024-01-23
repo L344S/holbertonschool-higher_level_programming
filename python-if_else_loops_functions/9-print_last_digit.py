@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 def print_last_digit(number):  # Function that prints the last digit of a num
-    positive = abs(number)  # abs() returns the absolute (pos) value of a num
-    last_digit = positive % 10  # get last digit of + number
-    print(last_digit, end="")  # print without new line
-    return (last_digit)  # return last digit of number
+    if (number >= 0):  # If number is positive
+        last = number % 10  # return last digit of + number
+    else:  # If number is negative
+        last = abs(number) % 10  # return last digit of negative number
+    print(last, end="")  # Print last digit
+    return last  # Return last digit
