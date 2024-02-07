@@ -1,0 +1,18 @@
+0 - Import:
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Test 1 : Basecase
+>>> add_integer(1, 2)
+3
+
+Test 2 : Param != 2
+>>> add_integer(1)
+99
+
+Test 3 : Float
+>>> add_integer(1.2, 3)
+4
+
+Test 4 : Param < 0
+>>> add_integer(2, -1)
+1
