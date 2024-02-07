@@ -88,8 +88,12 @@ class Rectangle:
         """
         Description:
             Calculates the perimeter (2 * width + 2 * height) of the rectangle.
+            If the width or height is 0, it perimeter is 0.
 
         Returns:
             The perimeter of the rectangle. (int)
         """
-        return (self.__width + self.__height) * 2
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        else:
+            return (self.__width + self.__height) * 2
