@@ -7,7 +7,7 @@ class Rectangle:
         """
         Description:
             Creates a instance of a rectangle with the given parameters:
-            Initializes the width and height and increments the number_of_instances.
+            Initializes the width and height and increments the instances nb.
             If no value is given, it defaults to 0.
 
         Args:
