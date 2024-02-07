@@ -27,7 +27,7 @@ Test 6 : Args > 2
 Traceback (most recent call last):
 TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
 
-Test 7 : Args1 = type(string)
+Test 7 : Args = type(string)
 >>> add_integer("text", 2)
 Traceback (most recent call last):
 TypeError: a must be an integer
@@ -36,3 +36,8 @@ Test 8 : Args2 = type(string)
 >>> add_integer(1, "text")
 Traceback (most recent call last):
 TypeError: b must be an integer
+
+Test 9 : Args = None
+>>> add_integer(None)
+Traceback (most recent call last):
+TypeError: a must be an integer
