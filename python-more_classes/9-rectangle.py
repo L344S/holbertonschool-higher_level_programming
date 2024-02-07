@@ -163,16 +163,25 @@ class Rectangle:
         Returns:
             The biggest rectangle. (Rectangle)
         """
-        if type(rect_1) is not Rectangle:
+        if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
-        if type(rect_2) is not Rectangle:
+        elif not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
+
+        """Returns the biggest"""
         if rect_1.area() >= rect_2.area():
             return rect_1
-        else:
-            return rect_2
+        return rect_2
 
     @classmethod
     def square(cls, size=0):
-        """TESTTTTTTTTTTTT"""
+        """
+        Description:
+            Creates a new instance of Rectangle with the given size.
+            The width and height are the same (width == height == size).
+            If no value is given, size defaults to 0.
+
+        Returns:
+            A new instance of Rectangle with the given size. (Rectangle)
+        """
         return cls(size, size)
