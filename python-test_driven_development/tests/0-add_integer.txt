@@ -49,3 +49,8 @@ Test 11 : Overflow
     >>> add_integer(1, float('-inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
+
+Test 12 : NaN
+    >>> add_integer(1, float('NaN'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
