@@ -20,7 +20,7 @@ class Rectangle:
             width (int): The width of the rectangle given as an integer.
             height (int): The height of the rectangle given as an integer.
         """
-        self.width = width
+        self.width = width # NEED TO BE FIRST
         self.height = height
         Rectangle.number_of_instances += 1
 
