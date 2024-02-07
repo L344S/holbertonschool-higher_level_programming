@@ -1,51 +1,51 @@
 0 - Import:
 >>> add_integer = __import__('0-add_integer').add_integer
 
-Import .py module:
-    >>> add_integer = __import__('0-add_integer').add_integer
+Test 1 : Basecase
+>>> add_integer(1, 2)
+3
 
-Basic use:
-    >>> add_integer(1, 2)
-    3
+Test 2 : Args = 1
+>>> add_integer(1)
+99
 
-Negative number:
-    >>> add_integer(1, -2)
-    -1
+Test 3 : Float
+>>> add_integer(1.2, 2)
+3
 
-Float number:
-    >>> add_integer(1.4, 2)
-    3
+Test 4 : Param < 0
+>>> add_integer(2, -1)
+1
 
-String argument a:
-    >>> add_integer("1", 2)
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
+Test 5 : Args = Float & Neg
+>>> add_integer(3.1, -1)
+2
 
-String argument b:
-    >>> add_integer(1, "2")
-    Traceback (most recent call last):
-    ...
-    TypeError: b must be an integer
+Test 6 : Param1 & Param 2 < 0
+>>> add_integer(-1, -2)
+-3
 
-Float overflow:
-    >>> add_integer(1, float('-inf'))
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
+Test 7 : Args < 0
+>>> add_integer()
+Traceback (most recent call last):
+TypeError: add_integer() missing 1 required positional argument: 'a'
 
-Float NaN:
-    >>> add_integer(1, float('NaN'))
-    Traceback (most recent call last):
-    ...
-    ValueError: cannot convert float NaN to integer
+Test 8 : Args > 2
+>>> add_integer(1, 2, 3)
+Traceback (most recent call last):
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
 
-One argument:
-    >>> add_integer(1)
-    99
+Test 9 : Args = type(string)
+>>> add_integer("text", 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
 
-No arguments:
-    >>> add_integer(None)
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
+Test 10 : Args2 = type(string)
+>>> add_integer(1, "text")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+Test 11 : Args = None
+>>> add_integer(None)
+Traceback (most recent call last):
+TypeError: a must be an integer
