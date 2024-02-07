@@ -10,8 +10,8 @@ Test 2 : Args = 1
 99
 
 Test 3 : Float
->>> add_integer(1.2, 3)
-4
+>>> add_integer(1.2, 2)
+3
 
 Test 4 : Param < 0
 >>> add_integer(2, -1)
@@ -22,7 +22,7 @@ Test 5 : Args = Float & Neg
 2
 
 Test 6 : Param1 & Param 2 < 0
-add_integer(-1, -2)
+>>> add_integer(-1, -2)
 -3
 
 Test 7 : Args < 0
