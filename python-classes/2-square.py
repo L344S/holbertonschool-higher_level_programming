@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""A module for a square class."""
+
+
 class Square:
     """A class to define a square."""
     def __init__(self, size=0):
@@ -14,7 +17,7 @@ class Square:
             TypeError: If size is not an integer.
             ValueError: If size is less than 0.
         """
-        if type(size) is not int:
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")
