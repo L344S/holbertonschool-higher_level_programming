@@ -116,14 +116,15 @@ class Rectangle:
         Returns:
             The string representation of the rectangle. (#)
         """
+        rect = ""
         if self.__width == 0 or self.__height == 0:
-            return ""
-        else:
-            rectangle = ""
-            for i in range(self.__height - 1):
-                rectangle += str(self.print_symbol) * self.__width + "\n"
-            rectangle += str(self.print_symbol) * self.__width
-            return rectangle
+            return rect
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rect += str(self.print_symbol)
+            if i < self.__height - 1:
+                rect += "\n"
+        return rect
 
     def __repr__(self):
         """
@@ -163,15 +164,14 @@ class Rectangle:
         Returns:
             The biggest rectangle. (Rectangle)
         """
-        if not isinstance(rect_1, Rectangle):
+        if type(rect_1) is not Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
-        elif not isinstance(rect_2, Rectangle):
+        if type(rect_2) is not Rectangle:
             raise TypeError("rect_2 must be an instance of Rectangle")
-
-        """Returns the biggest"""
         if rect_1.area() >= rect_2.area():
             return rect_1
-        return rect_2
+        else:
+            return rect_2
 
     @classmethod
     def square(cls, size=0):
