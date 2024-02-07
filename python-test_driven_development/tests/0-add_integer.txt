@@ -14,8 +14,8 @@ Test 3 : Float
     3
 
 Test 4 : Param < 0
-    >>> add_integer(2, -1)
-    1
+    >>> add_integer(1, -2)
+    -1
 
 Test 5 : Args = Float & Neg
     >>> add_integer(3.1, -1)
