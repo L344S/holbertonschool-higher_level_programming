@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""A module for a rectangle class."""
+
+
 class Rectangle:
     """A class to define a rectangle."""
 
@@ -13,8 +16,8 @@ class Rectangle:
             width (int): The width of the rectangle given as an integer.
             height (int): The height of the rectangle given as an integer.
         """
-        self.__height = height
-        self.__width = width
+        self.height = height
+        self.width = width
 
     @property
     def height(self):
@@ -49,7 +52,7 @@ class Rectangle:
             TypeError: If height is not an integer.
             ValueError: If height is less than 0.
         """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         elif value < 0:
             raise ValueError("height must be >= 0")
@@ -67,7 +70,7 @@ class Rectangle:
             TypeError: If width is not an integer.
             ValueError: If width is less than 0.
         """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
