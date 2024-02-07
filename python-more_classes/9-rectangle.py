@@ -103,8 +103,7 @@ class Rectangle:
         """
         if self.__width == 0 or self.__height == 0:
             return 0
-        else:
-            return (self.__width + self.__height) * 2
+        return self.__width * 2 + self.__height * 2
 
     def __str__(self):
         """
@@ -134,9 +133,7 @@ class Rectangle:
         Returns:
             The formal string representation of the rectangle. (str)
         """
-        w = str(self.__width)
-        h = str(self.__height)
-        return "Rectangle(" + w + ", " + h + ")"
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
         """
