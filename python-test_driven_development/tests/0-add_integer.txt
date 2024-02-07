@@ -46,6 +46,6 @@ Test 10 : Args = None
     TypeError: a must be an integer
 
 Test 11 : Overflow
->>> add_integer(1, float('-inf'))
+    >>> add_integer(1, float('-inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
