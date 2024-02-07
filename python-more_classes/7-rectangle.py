@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 class Rectangle:
     """A class to define a rectangle."""
-    
+
     """Public class attribute."""
     number_of_instances = 0
     print_symbol = "#"
