@@ -119,9 +119,10 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         else:
-            rectangle = str(self.print_symbol) * self.__width
-            for i in range(1, self.__height):
-                rectangle += "\n" + str(self.print_symbol) * self.__width
+            rectangle = ""
+            for i in range(self.__height - 1):
+                rectangle += str(self.print_symbol) * self.__width + "\n"
+            rectangle += str(self.print_symbol) * self.__width
             return rectangle
 
     def __repr__(self):
@@ -173,13 +174,5 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """
-        Description:
-            Creates a new instance of Rectangle with the given size.
-            The width and height are the same (width == height == size).
-            If no value is given, size defaults to 0.
-
-        Returns:
-            A new instance of Rectangle with the given size. (Rectangle)
-        """
+        """TESTTTTTTTTTTTT"""
         return cls(size, size)
