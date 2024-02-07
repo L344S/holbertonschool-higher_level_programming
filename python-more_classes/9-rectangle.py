@@ -75,12 +75,12 @@ class Rectangle:
             TypeError: If width is not an integer.
             ValueError: If width is less than 0.
         """
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
-        else:
-            self.__width = value
+        self.__width = value
+
 
     def area(self):
         """
