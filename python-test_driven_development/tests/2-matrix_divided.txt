@@ -8,7 +8,7 @@ Test 1 : Basecase
 Test 2 : type(div) is string
     >>> matrix_divided([[1, 2], [3, 4]], "2")
     Traceback (most recent call last):
-    TypeError: div must be a number 
+    TypeError: div must be a number
 
 Test 3 : div == 0 
     >>> matrix_divided([[1, 2], [3, 4]], 0)
