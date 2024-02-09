@@ -25,12 +25,12 @@ def matrix_divided(matrix, div):
 
     if type(matrix) is not list or type(matrix[0]) is not list:
         raise TypeError(too_long)
-    
+
     row_length = len(matrix[0])
     for row in matrix:
         if len(row) != row_length:
             raise TypeError("Each row of the matrix must have the same size")
-    
+
     if type(div) not in [int, float]:
         raise TypeError("div must be a number")
     elif div == 0:
