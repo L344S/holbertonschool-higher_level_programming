@@ -61,7 +61,8 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([1]), 1)
 
     def test_list_is_empty(self):
-        """Description:
+        """
+        Description:
             If list is empty
         """
         self.assertEqual(max_integer([]), None)
