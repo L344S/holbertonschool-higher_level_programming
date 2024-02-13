@@ -4,10 +4,11 @@
 
 def lookup(obj):
     """
-    Description: A function that returns the list
-    of available attributes and methods of an object.
+    Description:
+        A function that returns the list
+        of available attributes and methods of an object.
 
-    Args: the object to be checked.
+    Args: The object to be checked.
 
     Returns: A list
     """
