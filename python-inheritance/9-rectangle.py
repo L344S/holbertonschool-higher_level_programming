@@ -36,8 +36,8 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         """
         Description:
-            Returns a string representation of the rectangle
-            with the # character.
+            Returns a string representation of the rectangle.
+            Ex : [Rectangle] 13/13
 
         Returns:
             The string representation of the rectangle. (#)
