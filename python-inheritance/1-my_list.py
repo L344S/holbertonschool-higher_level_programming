@@ -18,4 +18,5 @@ class MyList(list):
         Returns:
             A sorted list of the original list (list of integers).
         """
-        print(sorted(self))
+        sorted_list = sorted(self)
+        print(sorted_list)
