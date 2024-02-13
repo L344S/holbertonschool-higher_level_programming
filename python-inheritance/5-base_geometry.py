@@ -3,8 +3,5 @@
 
 
 class BaseGeometry:
-    """
-    Description:
-        Empty class.
-    """
+    """A class to define a shape"""
     pass
