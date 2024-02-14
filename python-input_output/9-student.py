@@ -6,8 +6,8 @@ class Student:
     """ Student class"""
 
     def __init__(self, first_name, last_name, age):
-        """ 
-        Description: 
+        """
+        Description:
             Initializes the Student instance.
 
         Args:
@@ -22,7 +22,8 @@ class Student:
     def to_json(self):
         """
         Description:
-            A function that retrieves a dictionary representation of a Student instance"
+            A function that retrieves a dictionary
+            representation of a Student instance"
 
         Returns:
             A dictionary.
