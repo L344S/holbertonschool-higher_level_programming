@@ -1,66 +1,56 @@
 0 - Import:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> shape = BaseGeometry()
 
 Test 1 : Basecase
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value", 1)
 
 Test 2 : value < 0
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value", -1)
     Traceback (most recent call last):
     ValueError: value must be greater than 0
 
 Test 3 : value == 0
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value", 0)
     Traceback (most recent call last):
     ValueError: value must be greater than 0
 
 Test 3 : Arg == 0
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator()
     Traceback (most recent call last):
     TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 Test 4 : Arg == 1
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value")
     Traceback (most recent call last):
     TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
 Test 5 : type(value) is not int (String)
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value", "text")
     Traceback (most recent call last):
     TypeError: value must be an integer
 
 Test 6 : type(value) is not int (None)
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value", None)
     Traceback (most recent call last):
     TypeError: value must be an integer
 
 Test 7 : type(value) is not int (Tuple)
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value", (1, 2))
     Traceback (most recent call last):
     TypeError: value must be an integer
 
 Test 8 : type(value) is not int (List)
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value", [1, 2])
     Traceback (most recent call last):
     TypeError: value must be an integer
 
 Test 9 : type(value) is not int (Set)
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value", {1, 2})
     Traceback (most recent call last):
     TypeError: value must be an integer
 
 Test 10 : type(value) is not int (Boolean)
-    >>> shape = BaseGeometry()
     >>> shape.integer_validator("value", True)
     Traceback (most recent call last):
     TypeError: value must be an integer
