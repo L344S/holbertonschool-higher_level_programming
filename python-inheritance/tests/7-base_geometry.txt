@@ -1,72 +1,62 @@
-Import .py module:
+0 - Import:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-    >>> bg = BaseGeometry()
+    >>> shape = BaseGeometry()
 
-Method area:
-    >>> bg.area()
+Test 0 : Area
+    >>> shape.area()
     Traceback (most recent call last):
     ...
     Exception: area() is not implemented
 
-Basic use:
-    >>> bg.integer_validator("age", 1)
+Test 1 : Basecase
+    >>> shape.integer_validator("value", 1)
 
-Zero value:
-    >>> bg.integer_validator("age", 0)
+Test 2 : value < 0
+    >>> shape.integer_validator("value", -1)
     Traceback (most recent call last):
-    ...
-    ValueError: age must be greater than 0
+    ValueError: value must be greater than 0
 
-Negative value:
-    >>> bg.integer_validator("age", -4)
+Test 3 : value == 0
+    >>> shape.integer_validator("value", 0)
     Traceback (most recent call last):
-    ...
-    ValueError: age must be greater than 0
+    ValueError: value must be greater than 0
 
-String value:
-    >>> bg.integer_validator("age", "4")
+Test 3 : Arg == 0
+    >>> shape.integer_validator()
     Traceback (most recent call last):
-    ...
-    TypeError: age must be an integer
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-Tuple value:
-    >>> bg.integer_validator("age", (4,))
+Test 4 : Arg == 1
+    >>> shape.integer_validator("value")
     Traceback (most recent call last):
-    ...
-    TypeError: age must be an integer
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
-List value:
-    >>> bg.integer_validator("age", [3])
+Test 5 : type(value) is not int (String)
+    >>> shape.integer_validator("value", "text")
     Traceback (most recent call last):
-    ...
-    TypeError: age must be an integer
+    TypeError: value must be an integer
 
-Bool value:
-    >>> bg.integer_validator("age", True)
+Test 6 : type(value) is not int (None)
+    >>> shape.integer_validator("value", None)
     Traceback (most recent call last):
-    ...
-    TypeError: age must be an integer
+    TypeError: value must be an integer
 
-Set value:
-    >>> bg.integer_validator("age", {3, 4})
+Test 7 : type(value) is not int (Tuple)
+    >>> shape.integer_validator("value", (1, 2))
     Traceback (most recent call last):
-    ...
-    TypeError: age must be an integer
+    TypeError: value must be an integer
 
-None value:
-    >>> bg.integer_validator("age", None)
+Test 8 : type(value) is not int (List)
+    >>> shape.integer_validator("value", [1, 2])
     Traceback (most recent call last):
-    ...
-    TypeError: age must be an integer
+    TypeError: value must be an integer
 
-One argument:
-    >>> bg.integer_validator("age")
+Test 9 : type(value) is not int (Set)
+    >>> shape.integer_validator("value", {1, 2})
     Traceback (most recent call last):
-    ...
-    TypeError: integer_validator() missing 1 required positional argument: 'value'
+    TypeError: value must be an integer
 
-No arguments:
-    >>> bg.integer_validator()
+Test 10 : type(value) is not int (Boolean)
+    >>> shape.integer_validator("value", True)
     Traceback (most recent call last):
-    ...
-    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    TypeError: value must be an integer
