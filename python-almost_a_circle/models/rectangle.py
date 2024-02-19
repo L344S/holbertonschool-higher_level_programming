@@ -20,19 +20,18 @@ class Rectangle(Base):
 
         Calls:
             super().__init__(id) : Calls the constructor of Base class.
-
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
         """
         Description:
-            A function to get the width of the rectangle.
+            (G) A function to get the width of the rectangle.
 
         Returns:
             The width of the rectangle. (int)
@@ -43,7 +42,7 @@ class Rectangle(Base):
     def height(self):
         """
         Description:
-            A function to get the height of the rectangle.
+            (G) A function to get the height of the rectangle.
 
         Returns:
             The height of the rectangle. (int)
@@ -54,7 +53,7 @@ class Rectangle(Base):
     def x(self):
         """
         Description:
-            A function to get the x of the rectangle.
+            (G) A function to get the x of the rectangle.
 
         Returns:
             The x (int)
@@ -65,7 +64,7 @@ class Rectangle(Base):
     def y(self):
         """
         Description:
-            A function to get the y  of the rectangle.
+            (G) A function to get the y  of the rectangle.
 
         Returns:
             The y (int)
@@ -81,7 +80,12 @@ class Rectangle(Base):
         Args:
             value (int) : The value to set the width to.
         """
-        self.__width = value
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        elif value <= 0:
+            raise ValueError("width must be > 0")
+        else:
+            self.__width = value
 
     @height.setter
     def height(self, value):
@@ -92,7 +96,12 @@ class Rectangle(Base):
         Args:
             value (int) : The value to set the height to.
         """
-        self.__height = value
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
+        elif value <= 0:
+            raise ValueError("height must be > 0")
+        else:
+            self.__height = value
 
     @x.setter
     def x(self, value):
@@ -103,7 +112,12 @@ class Rectangle(Base):
         Args:
             value (int) : The value to set the x to.
         """
-        self.__x = value
+        if type(value) is not int:
+            raise TypeError("x must be an integer")
+        elif value < 0:
+            raise ValueError("x must be > 0")
+        else:
+            self.__x = value
 
     @y.setter
     def y(self, value):
@@ -114,4 +128,9 @@ class Rectangle(Base):
         Args:
             value (int) : The value to set the y to.
         """
-        self.__y = value
+        if type(value) is not int:
+            raise TypeError("y must be an integer")
+        elif value < 0:
+            raise ValueError("y must be > 0")
+        else:
+            self.__y = value
