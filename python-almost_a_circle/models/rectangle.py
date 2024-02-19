@@ -169,7 +169,7 @@ class Rectangle(Base):
     def update(self, *args):
         """
         Description:
-            Updates the values of the rectangle.
+            Updates the values of the rectangle with the given arguments.
             If args is not empty, the first argument is the id,
             the second is the width, the third is the height,
             the fourth is the x, and the fifth is the y.
