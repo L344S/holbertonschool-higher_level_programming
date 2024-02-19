@@ -10,7 +10,7 @@ class Base:
         """
         Description:
             A function to initialize a Base object.
-        
+
         Attributes:
             id (int): The id of the object.
             if id is not None, the id is set with this integer.
