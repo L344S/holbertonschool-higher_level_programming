@@ -82,3 +82,36 @@ class Rectangle(Base):
             value (int) : The value to set the width to.
         """
         self.__width = value
+
+    @height.setter
+    def height(self, value):
+        """
+        Description:
+            A function to set the height of the rectangle.
+
+        Args:
+            value (int) : The value to set the height to.
+        """
+        self.__height = value
+
+    @x.setter
+    def x(self, value):
+        """
+        Description:
+            A function to set the x of the rectangle.
+
+        Args:
+            value (int) : The value to set the x to.
+        """
+        self.__x = value
+
+    @y.setter
+    def y(self, value):
+        """
+        Description:
+            A function to set the y of the rectangle.
+
+        Args:
+            value (int) : The value to set the y to.
+        """
+        self.__y = value
