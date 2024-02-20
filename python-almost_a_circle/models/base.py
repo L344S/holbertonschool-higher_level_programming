@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for Base class"""
 import json
+from os import path
 
 
 class Base:
@@ -107,3 +108,20 @@ class Base:
             A function to update the attributes of the object.
         """
         pass
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Description:
+            A function to return a list of instances.
+
+        Attributes:
+            cls (class): The class of the object.
+        """
+        filename = cls.__name__ + ".json"
+        if not path.exists(filename):
+            return []
+        with open(filename, "r") as file:
+            obj = Base.from_json_string(file.read())
+        list = [cls.create(**dict) for dict in obj]
+        return list
