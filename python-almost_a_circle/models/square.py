@@ -32,3 +32,29 @@ class Square(Rectangle):
         """
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
                                                  self.width)
+
+    @property
+    def size(self):
+        """
+        Description:
+            (G) A function to get the size of the square.
+
+        Returns:
+            The size of the square. (int)
+        """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """
+        Description:
+            A function to set the size of the square.
+
+        Attributes:
+            value (int) : The size of the square.
+
+        Calls:
+            self.width = value : Calls the setter of width.
+        """
+        self.width = value
+        self.height = value
