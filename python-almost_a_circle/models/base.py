@@ -26,7 +26,8 @@ class Base:
     def to_json_string(list_dictionaries):
         """
         Description:
-            A function to return the JSON string representation of list_dictionaries.
+            A function to return the JSON string representation
+            of list_dictionaries.
 
         Attributes:
             list_dictionaries (list): A list of dictionaries.
