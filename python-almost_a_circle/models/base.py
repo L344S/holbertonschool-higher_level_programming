@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Module for Base class"""
+import json
 
 
 class Base:
@@ -20,3 +21,19 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        Description:
+            A function to return the JSON string representation of list_dictionaries.
+
+        Attributes:
+            list_dictionaries (list): A list of dictionaries.
+
+        Returns:
+            The JSON string representation of list_dictionaries. (str)
+        """
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        return json.dumps(list_dictionaries)
