@@ -102,4 +102,8 @@ class Base:
         return dummy
 
     def update(self, *args, **kwargs):
+        """
+        Description:
+            A function to update the attributes of the object.
+        """
         pass
