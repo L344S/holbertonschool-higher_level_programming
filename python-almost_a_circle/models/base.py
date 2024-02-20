@@ -116,7 +116,7 @@ class Base:
             A function to return a list of instances.
 
         Attributes:
-            cls (class): The class of the object.
+            cls (class): The class of the object to return.
         """
         filename = cls.__name__ + ".json"
         if not path.exists(filename):
