@@ -58,3 +58,20 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        Description:
+            A function to update the attributes of the object.
+
+        Attributes:
+            *args (list) : A list of arguments.
+            **kwargs (dict) : A dictionary of arguments.
+
+        Calls:
+            super().update(*args, **kwargs) : Calls the update of Rectangle class.
+        """
+        if args:
+            super().update(*args)
+        elif kwargs:
+            super().update(**kwargs)
