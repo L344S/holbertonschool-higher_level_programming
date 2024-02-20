@@ -69,9 +69,25 @@ class Square(Rectangle):
             **kwargs (dict) : A dictionary of arguments.
 
         Calls:
-            super().update(*args, **kwargs) : Calls the update of Rectangle class.
+            super().update(*args, **kwargs) : Calls the update
+            of Rectangle class.
         """
         if args:
-            super().update(*args)
-        elif kwargs:
-            super().update(**kwargs)
+            if len(args) > 0:
+                self.id = args[0]
+            if len(args) > 1:
+                self.size = args[1]
+            if len(args) > 2:
+                self.x = args[2]
+            if len(args) > 3:
+                self.y = args[3]
+        else:
+            for i in kwargs:
+                if i == "id":
+                    self.id = kwargs[i]
+                if i == "size":
+                    self.size = kwargs[i]
+                if i == "x":
+                    self.x = kwargs[i]
+                if i == "y":
+                    self.y = kwargs[i]
