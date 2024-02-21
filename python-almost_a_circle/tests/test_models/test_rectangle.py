@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 """Tests for the Base class"""
-import io
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
-from contextlib import redirect_stdout
 
 
 class TestRectangle(unittest.TestCase):
@@ -34,6 +32,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 3)
         self.assertEqual(rect.y, 4)
+        self.assertEqual(rect.id, 5)
 
     def test_type(self):
         self.assertRaises(TypeError, Rectangle, "1", 1)
