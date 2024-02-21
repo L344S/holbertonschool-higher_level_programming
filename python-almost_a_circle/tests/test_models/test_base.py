@@ -20,17 +20,22 @@ class TestBase(unittest.TestCase):
     def test_to_json_string_none(self):  # Test to_json_string method with None
         self.assertEqual(Base.to_json_string(None), '[]')
 
-    def test_to_json_string_empty(self):  # Test to_json_string method with empty list
+    # Test to_json_string method with empty list
+    def test_to_json_string_empty(self):
         self.assertEqual(Base.to_json_string([]), '[]')
 
-    def test_to_json_string_exists(self):  # Test to_json_string method with list of dictionaries
+    # Test to_json_string method with list of dictionaries
+    def test_to_json_string_exists(self):
         self.assertEqual(Base.to_json_string([{'id': 12}]), '[{"id": 12}]')
 
-    def test_from_json_string_none(self):  # Test from_json_string method with None
+    # Test from_json_string method with None
+    def test_from_json_string_none(self):
         self.assertEqual(Base.from_json_string(None), [])
 
-    def test_from_json_string_empty(self):  # Test from_json_string method with empty string
+    # Test from_json_string method with empty string
+    def test_from_json_string_empty(self):
         self.assertEqual(Base.from_json_string("[]"), [])
 
-    def test_from_json_string_exists(self):  # Test from_json_string method with list of dictionaries
+    # Test from_json_string method with list of dictionaries
+    def test_from_json_string_exists(self):
         self.assertEqual(Base.from_json_string('[{ "id": 89 }]'), [{'id': 89}])
