@@ -1,57 +1,36 @@
 #!/usr/bin/python3
+"""Tests for the Base class"""
 import unittest
-import json
 from models.base import Base
 
 
 class TestBase(unittest.TestCase):
+    """Tests for the Base class"""
 
-    def test_assign_id(self):
-        test = Base(50)
-        self.assertEqual(test.id, 50)
+    def test_assign_id(self):  # Check if id is assigned correctly
+        test0 = Base(3)
+        self.assertEqual(test0.id, 3)
 
-    def test_no_id_assigned(self):
-        test = Base()
-        self.assertEqual(test.id, 1)
+    def test_no_id_assigned(self):  # Test if id not assigned (default = 1)
+        test1 = Base()
+        self.assertEqual(test1.id, 1)
+        test2 = Base()  # previous id = 1, new id = 2
+        self.assertEqual(test2.id, 2)
 
-    def test_to_json_string(self):
-        dictionary = {'id': 50,
-                      'width': 10,
-                      'height': 5,
-                      'x': 2,
-                      'y': 3}
-        json_string = Base.to_json_string(dictionary)
-        self.assertTrue(isinstance(json_string, str))
+    def test_to_json_string_none(self):  # Test to_json_string method with None
+        self.assertEqual(Base.to_json_string(None), '[]')
 
-    def test_to_json_string_content(self):
-        dictionary = {'id': 50,
-                      'width': 10,
-                      'height': 5,
-                      'x': 2,
-                      'y': 3}
-        json_string = Base.to_json_string(dictionary)
-        self.assertCountEqual(json.loads(json_string), dictionary)
+    def test_to_json_string_empty(self):  # Test to_json_string method with empty list
+        self.assertEqual(Base.to_json_string([]), '[]')
 
-    def test_to_json_string_none(self):
-        json_string = Base.to_json_string(None)
-        self.assertEqual(json_string, "[]")
+    def test_to_json_string_exists(self):  # Test to_json_string method with list of dictionaries
+        self.assertEqual(Base.to_json_string([{'id': 12}]), '[{"id": 12}]')
 
-    def test_from_json_string(self):
-        string = '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}]'
-        json_list = Base.from_json_string(string)
-        self.assertTrue(isinstance(json_list, list))
+    def test_from_json_string_none(self):  # Test from_json_string method with None
+        self.assertEqual(Base.from_json_string(None), [])
 
-    def test_from_json_string_content(self):
-        string = '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}]'
-        expected_list = [{'id': 1, 'width': 10, 'height': 7, 'x': 2, 'y': 8}]
-        json_list = Base.from_json_string(string)
-        self.assertEqual(json_list, expected_list)
+    def test_from_json_string_empty(self):  # Test from_json_string method with empty string
+        self.assertEqual(Base.from_json_string("[]"), [])
 
-    def test_from_json_string_none(self):
-        json_list = Base.from_json_string(None)
-        self.assertEqual(json_list, [])
-
-    def test_create_error(self):
-        with self.assertRaises(Exception) as err:
-            Base.create()
-        self.assertEqual(str(err.exception), "Wrong class")
+    def test_from_json_string_exists(self):  # Test from_json_string method with list of dictionaries
+        self.assertEqual(Base.from_json_string('[{ "id": 89 }]'), [{'id': 89}])
