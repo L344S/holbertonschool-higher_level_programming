@@ -39,7 +39,6 @@ class TestRectangle(unittest.TestCase):
             rectangle1 = Rectangle(1, 2, 3, "sup'")
         self.assertEqual(str(err3.exception), "y must be an integer")
 
-
     def test_rectangle_value_error(self):
         with self.assertRaises(ValueError) as err:
             rectangle = Rectangle(-2, 1)
@@ -50,7 +49,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError) as err3:
             rectangle = Rectangle(0, 1)
         self.assertEqual(str(err3.exception), "width must be > 0")
-
 
     def test_rectangle_area(self):
         rectangle = Rectangle(3, 2)
@@ -110,30 +108,32 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle_dict, expected_dict)
 
     def test_rectangle_create_only_id(self):
-        rectangle = Rectangle.create(**{ 'id': 89})
+        rectangle = Rectangle.create(**{'id': 89})
         self.assertEqual(rectangle.id, 89)
         self.assertEqual(rectangle.x, 0)
 
     def test_rectangle_create_id_width(self):
-        rectangle = Rectangle.create(**{ 'id': 89, 'width': 1})
+        rectangle = Rectangle.create(**{'id': 89, 'width': 1})
         self.assertEqual(rectangle.id, 89)
         self.assertEqual(rectangle.width, 1)
 
     def test_rectangle_create_id_width_height(self):
-        rectangle = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2})
+        rectangle = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2})
         self.assertEqual(rectangle.id, 89)
         self.assertEqual(rectangle.width, 1)
         self.assertEqual(rectangle.height, 2)
 
     def test_rectangle_create_id_width_height_x(self):
-        rectangle = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3})
+        rectangle = Rectangle.create(
+            **{'id': 89, 'width': 1, 'height': 2, 'x': 3})
         self.assertEqual(rectangle.id, 89)
         self.assertEqual(rectangle.width, 1)
         self.assertEqual(rectangle.height, 2)
         self.assertEqual(rectangle.x, 3)
 
     def test_rectangle_create_id_width_height_x_y(self):
-        rectangle = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        rectangle = Rectangle.create(
+            **{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
         self.assertEqual(rectangle.id, 89)
         self.assertEqual(rectangle.width, 1)
         self.assertEqual(rectangle.height, 2)
@@ -161,7 +161,9 @@ class TestRectangle(unittest.TestCase):
         with open(self.filename, 'r') as file:
             file_read = file.read()
             expected_content = json.dumps([rectangle.to_dictionary()])
-            self.assertEqual(json.loads(file_read), json.loads(expected_content))
+            self.assertEqual(
+                json.loads(file_read),
+                json.loads(expected_content))
 
     @classmethod
     def setUpClass(cls):
@@ -188,7 +190,12 @@ class TestRectangle(unittest.TestCase):
             file.write(Rectangle.to_json_string(rectangles))
         loaded_file = Rectangle.load_from_file()
         self.assertTrue(len(loaded_file) == len(rectangles))
-        for loaded_rectangle, expected_rectangle in zip(loaded_file, rectangles):
+        for loaded_rectangle, expected_rectangle in zip(
+                loaded_file, rectangles):
             self.assertTrue(isinstance(loaded_rectangle, Rectangle))
             for key in expected_rectangle:
-                self.assertEqual(getattr(loaded_rectangle,key), expected_rectangle[key])
+                self.assertEqual(
+                    getattr(
+                        loaded_rectangle,
+                        key),
+                    expected_rectangle[key])
