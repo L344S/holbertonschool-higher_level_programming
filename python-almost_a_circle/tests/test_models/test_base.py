@@ -54,4 +54,4 @@ class TestBase(unittest.TestCase):
     def test_create_error(self):
         with self.assertRaises(Exception) as err:
             Base.create()
-        self.assertEqual(str(err.exception), "Wrong class") # change error msg to your own
+        self.assertEqual(str(err.exception), "Wrong class")
