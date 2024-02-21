@@ -156,6 +156,37 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 3)
 
+    def test_rectangle_save_to_file_none_exists(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    def test_rectangle_save_to_file_empty_exists(self):
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    def test_rectangle_save_to_file_exists(self):
+        rect = Rectangle(1, 2)
+    Rectangle.save_to_file([rect])
+    with open("Rectangle.json", "r") as file:
+        self.assertIn('{"id":', file.read())
+
+    def test_rectangle_load_from_file_not_exists(self):
+        try:
+            os.remove("Rectangle.json")
+        except FileNotFoundError:
+            pass
+        self.assertEqual(Rectangle.load_from_file(), [])
+
+    def test_rectangle_load_from_file_exists(self):
+        rect = Rectangle(1, 2)
+        Rectangle.save_to_file([rect])
+        rectangles = Rectangle.load_from_file()
+        self.assertEqual(len(rectangles), 1)
+        self.assertEqual(rectangles[0].width, 1)
+        self.assertEqual(rectangles[0].height, 2)
+
     def test_rectangle_create_exists_5(self):
         rect = Rectangle.create(**{
             'id': 89,
