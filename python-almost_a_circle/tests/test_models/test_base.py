@@ -6,6 +6,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 """------------------- TestBase -------------------"""
 class TestBase(unittest.TestCase):
     """Tests for the Base class"""
@@ -35,7 +36,7 @@ class TestBase(unittest.TestCase):
                       'y': 3}
         json_string = Base.to_json_string(dictionary)
         self.assertCountEqual(json.loads(json_string), dictionary)
-    
+
     def test_to_json_string_none(self):
         json_string = Base.to_json_string(None)
         self.assertEqual(json.loads(json_string), [])
