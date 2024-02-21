@@ -17,7 +17,3 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_string_none(self):
         self.assertEqual(Base.to_json_string(None), '[]')
-
-
-if __name__ == '__main__':
-    unittest.main()
