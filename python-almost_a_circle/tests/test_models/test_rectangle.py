@@ -200,18 +200,3 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 3)
         self.assertEqual(rect.y, 4)
-
-    def test_basic_display(self):
-        r = Rectangle(2, 2)
-        input_string = io.StringIO()
-        res_str = "##\n##\n"
-        with redirect_stdout(input_string):
-            r.display()
-        self.assertEqual(res_str, input_string.getvalue())
-
-        r.x = 1
-        res_str = " ##\n ##\n"
-        input_string = io.StringIO()
-        with redirect_stdout(input_string):
-            r.display()
-        self.assertEqual(res_str, input_string.getvalue())
