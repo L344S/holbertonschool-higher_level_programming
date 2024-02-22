@@ -3,6 +3,7 @@
 import os
 import unittest
 from models.square import Square
+from models.base import Base
 
 
 class TestSquare(unittest.TestCase):
@@ -90,13 +91,12 @@ class TestSquare(unittest.TestCase):
         new_square = Square.create(**square_dictionary)
         self.assertEqual(str(square), str(new_square))
 
-    def test_Square_save_to_file(self):
-        square = Square(1, 2, 3, 4)
-        Square.save_to_file([square])
-        with open("Square.json", "r") as file:
+    def test_Square_save_to_file_exists(self):
+        Square.save_to_file([Square(1)])
+        with open('Square.json', 'r') as file:
             self.assertEqual(
-                Square.to_dictionary(square),
-                square.to_dictionary())
+                file.read(), '[{"id": 29, "size": 1, "x": 0, "y": 0}]')
+        os.remove('Square.json')
 
     def test_Square_load_from_file(self):
         square = Square(1, 2, 3, 4)
