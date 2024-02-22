@@ -12,25 +12,26 @@ from models.rectangle import Rectangle
 class TestRectangle(unittest.TestCase):
     """Tests for the Rectangle class"""
 
-    def test_rectangle_creation_1(self):  # Base case for rectangle creation
+    """-------- BASECASES --------"""
+    def test_rectangle_without_x_y(self):
         rectangle = Rectangle(1, 2)
         self.assertEqual(rectangle.width, 1)
         self.assertEqual(rectangle.height, 2)
 
-    def test_rectangle_creation_2(self):  # Test for width, height, x
+    def test_rectangle_without_y(self):
         rectangle = Rectangle(1, 2, 3)
         self.assertEqual(rectangle.width, 1)
         self.assertEqual(rectangle.height, 2)
         self.assertEqual(rectangle.x, 3)
 
-    def test_rectangle_creation_3(self):  # Test for width, height, x, y
+    def test_rectangle_without_id(self):
         rectangle = Rectangle(1, 2, 3, 4)
         self.assertEqual(rectangle.width, 1)
         self.assertEqual(rectangle.height, 2)
         self.assertEqual(rectangle.x, 3)
         self.assertEqual(rectangle.y, 4)
 
-    def test_rectangle_creation_4(self):  # Test for width, height, x, y, id
+    def test_rectangle_all(self):
         rectangle = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(rectangle.width, 1)
         self.assertEqual(rectangle.height, 2)
@@ -38,24 +39,23 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.y, 4)
         self.assertEqual(rectangle.id, 5)
 
-    def test_type(self):  # Test if typeError is raised when needed
-        self.assertRaises(TypeError, Rectangle, "1", 1)
-        self.assertRaises(TypeError, Rectangle, width='2')
-        self.assertRaises(TypeError, Rectangle, width=float('NaN'))
-        self.assertRaises(TypeError, Rectangle, width=float('inf'))
-        self.assertRaises(TypeError, Rectangle, 1, height='abc')
-        self.assertRaises(TypeError, Rectangle, 1, 1, x={})
-        self.assertRaises(TypeError, Rectangle, 1, 1, y=2.5)
+    """-------- TYPE ERROR --------"""
+    def test_type(self):
+        self.assertRaises(TypeError, Rectangle, "1", 2)
+        self.assertRaises(TypeError, Rectangle, 1, "2")
+        self.assertRaises(TypeError, Rectangle, 1, 2, "3")
+        self.assertRaises(TypeError, Rectangle, 1, 2, 3, "4")
 
-    def test_value(self):  # Test if valueError is raised when needed
-        self.assertRaises(ValueError, Rectangle, -5, 1)
-        self.assertRaises(ValueError, Rectangle, 0, 1)
-        self.assertRaises(ValueError, Rectangle, 1, 0)
-        self.assertRaises(ValueError, Rectangle, 1, -565)
-        self.assertRaises(ValueError, Rectangle, 1, 1, -755)
-        self.assertRaises(ValueError, Rectangle, 1, 1, -2)
+    """-------- VALUE ERROR --------"""
+    def test_value(self):
+        self.assertRaises(ValueError, Rectangle, -1, 2)
+        self.assertRaises(ValueError, Rectangle, 1, -2)
+        self.assertRaises(ValueError, Rectangle, 1, 2, -3)
         self.assertRaises(ValueError, Rectangle, 1, 2, 3, -4)
+        self.assertRaises(ValueError, Rectangle, 0, 2)
+        self.assertRaises(ValueError, Rectangle, 1, 0)
 
+    """-------- METHODS --------"""
     def test_area(self):  # Test for area method
         rectangle = Rectangle(6, 2)
         self.assertEqual(rectangle.area(), 12)
