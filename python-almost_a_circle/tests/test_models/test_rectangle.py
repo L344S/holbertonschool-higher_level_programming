@@ -117,3 +117,25 @@ class TestRectangle(unittest.TestCase):
         rectangle = Rectangle(1, 2, 3, 4, 5)
         expected_dict = {'id': 5, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
         self.assertEqual(rectangle.to_dictionary(), expected_dict)
+
+    def test_create_without_x_y(self):
+        rect = Rectangle.create(**{'id': 1, 'width': 2, 'height': 3})
+        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.width, 2)
+        self.assertEqual(rect.height, 3)
+
+    def test_create_withouth_y(self):
+        rect = Rectangle.create(**{'id': 1, 'width': 2, 'height': 3, 'x': 4})
+        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.width, 2)
+        self.assertEqual(rect.height, 3)
+        self.assertEqual(rect.x, 4)
+
+    def test_create_with_all_args(self):
+        rect = Rectangle.create(
+            **{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        self.assertEqual(rect.id, 89)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 3)
+        self.assertEqual(rect.y, 4)
