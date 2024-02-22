@@ -125,7 +125,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.height, 3)
 
     def test_create_withouth_y(self):
-        rectangle = Rectangle.create(**{'id': 1, 'width': 2, 'height': 3, 'x': 4})
+        rectangle = Rectangle.create(
+            **{'id': 1, 'width': 2, 'height': 3, 'x': 4})
         self.assertEqual(rectangle.id, 1)
         self.assertEqual(rectangle.width, 2)
         self.assertEqual(rectangle.height, 3)
@@ -139,3 +140,26 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.height, 3)
         self.assertEqual(rectangle.x, 4)
         self.assertEqual(rectangle.y, 5)
+
+    def test_save_to_fnone(self):
+        Rectangle.save_to_file(None)
+        self.assertEqual(Rectangle.load_from_file(), [])
+
+    def test_save_to_fempty(self):
+        Rectangle.save_to_file([])
+        self.assertEqual(Rectangle.load_from_file(), [])
+
+    def test_save_and_load(self):
+        rectangle = Rectangle(1, 2, 3, 4, 5)
+        Rectangle.save_to_file([rectangle])
+        loaded = Rectangle.load_from_file()
+        self.assertEqual(loaded[0].id, 5)
+        self.assertEqual(loaded[0].width, 1)
+        self.assertEqual(loaded[0].height, 2)
+        self.assertEqual(loaded[0].x, 3)
+        self.assertEqual(loaded[0].y, 4)
+
+    def test_load_from_file_not_exist(self):
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+        self.assertEqual(Rectangle.load_from_file(), [])
