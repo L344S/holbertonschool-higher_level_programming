@@ -141,7 +141,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.x, 4)
         self.assertEqual(rectangle.y, 5)
 
-    def test_save_to_fnone(self):
+    def test_save_to_file(self):
         filename = "Rectangle.json"
         Rectangle.save_to_file(None)
         self.assertTrue(os.path.exists(filename))
