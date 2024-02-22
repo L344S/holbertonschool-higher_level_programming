@@ -91,6 +91,12 @@ class TestSquare(unittest.TestCase):
         new_square = Square.create(**square_dictionary)
         self.assertEqual(str(square), str(new_square))
 
+    def test_Square_save_to_file_exists_empty(self):
+        Square.save_to_file([])
+        with open('Square.json', 'r') as file:
+            self.assertEqual(file.read(), '[]')
+        os.remove('Square.json')
+
     def test_Square_save_to_file_exists(self):
         Square.save_to_file([Square(1)])
         with open('Square.json', 'r') as file:
