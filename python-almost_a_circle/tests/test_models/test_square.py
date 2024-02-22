@@ -9,6 +9,7 @@ class TestSquare(unittest.TestCase):
     """Tests for the Square class"""
 
     """-------- BASECASES --------"""
+
     def test_Square_without_x_y(self):
         square = Square(1)
         self.assertEqual(square.size, 1)
@@ -32,6 +33,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square.id, 4)
 
     """-------- TYPE ERROR --------"""
+
     def test_Square_size_type(self):
         with self.assertRaises(TypeError):
             square = Square("1")
@@ -45,6 +47,7 @@ class TestSquare(unittest.TestCase):
             square = Square(1, 2, "3")
 
     """-------- VALUE ERROR --------"""
+
     def test_Square_size_value(self):
         with self.assertRaises(ValueError):
             square = Square(-1)
@@ -62,6 +65,7 @@ class TestSquare(unittest.TestCase):
             square = Square(0)
 
     """-------- METHODS --------"""
+
     def test_Square_str(self):
         square = Square(1, 2, 3, 4)
         result = "[Square] (4) 2/3 - 1"
@@ -85,6 +89,14 @@ class TestSquare(unittest.TestCase):
         square_dictionary = square.to_dictionary()
         new_square = Square.create(**square_dictionary)
         self.assertEqual(str(square), str(new_square))
+
+    def test_Square_save_to_file(self):
+        square = Square(1, 2, 3, 4)
+        Square.save_to_file([square])
+        with open("Square.json", "r") as file:
+            self.assertEqual(
+                Square.to_dictionary(square),
+                square.to_dictionary())
 
     def test_Square_load_from_file(self):
         square = Square(1, 2, 3, 4)
