@@ -43,3 +43,16 @@ class TestSquare(unittest.TestCase):
     def test_Square_y_type(self):
         with self.assertRaises(TypeError):
             square = Square(1, 2, "3")
+
+    """-------- VALUE ERROR --------"""
+    def test_Square_size_value(self):
+        with self.assertRaises(ValueError):
+            square = Square(-1)
+
+    def test_Square_x_value(self):
+        with self.assertRaises(ValueError):
+            square = Square(1, -2)
+
+    def test_Square_y_value(self):
+        with self.assertRaises(ValueError):
+            square = Square(1, 2, -3)
