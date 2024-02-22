@@ -96,11 +96,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(mystdout.getvalue(), expected_output)
 
     def test_display_exist(self):
-        rect = Rectangle(2, 4, 1, 2)
+        rectangle = Rectangle(2, 4, 1, 2)
         expected_output = "\n\n ##\n ##\n ##\n ##\n"
         old_stdout = sys.stdout
         sys.stdout = mystdout = StringIO()
-        rect.display()
+        rectangle.display()
         sys.stdout = old_stdout
         self.assertEqual(mystdout.getvalue(), expected_output)
 
@@ -119,23 +119,23 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.to_dictionary(), expected_dict)
 
     def test_create_without_x_y(self):
-        rect = Rectangle.create(**{'id': 1, 'width': 2, 'height': 3})
-        self.assertEqual(rect.id, 1)
-        self.assertEqual(rect.width, 2)
-        self.assertEqual(rect.height, 3)
+        rectangle = Rectangle.create(**{'id': 1, 'width': 2, 'height': 3})
+        self.assertEqual(rectangle.id, 1)
+        self.assertEqual(rectangle.width, 2)
+        self.assertEqual(rectangle.height, 3)
 
     def test_create_withouth_y(self):
-        rect = Rectangle.create(**{'id': 1, 'width': 2, 'height': 3, 'x': 4})
-        self.assertEqual(rect.id, 1)
-        self.assertEqual(rect.width, 2)
-        self.assertEqual(rect.height, 3)
-        self.assertEqual(rect.x, 4)
+        rectangle = Rectangle.create(**{'id': 1, 'width': 2, 'height': 3, 'x': 4})
+        self.assertEqual(rectangle.id, 1)
+        self.assertEqual(rectangle.width, 2)
+        self.assertEqual(rectangle.height, 3)
+        self.assertEqual(rectangle.x, 4)
 
     def test_create_with_all_args(self):
-        rect = Rectangle.create(
-            **{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
-        self.assertEqual(rect.id, 89)
-        self.assertEqual(rect.width, 1)
-        self.assertEqual(rect.height, 2)
-        self.assertEqual(rect.x, 3)
-        self.assertEqual(rect.y, 4)
+        rectangle = Rectangle.create(
+            **{'id': 1, 'width': 2, 'height': 3, 'x': 4, 'y': 5})
+        self.assertEqual(rectangle.id, 1)
+        self.assertEqual(rectangle.width, 2)
+        self.assertEqual(rectangle.height, 3)
+        self.assertEqual(rectangle.x, 4)
+        self.assertEqual(rectangle.y, 5)
