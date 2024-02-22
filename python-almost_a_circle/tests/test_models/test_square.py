@@ -56,7 +56,18 @@ class TestSquare(unittest.TestCase):
     def test_Square_y_value(self):
         with self.assertRaises(ValueError):
             square = Square(1, 2, -3)
-    
+
     def test_Square_size_value_0(self):
         with self.assertRaises(ValueError):
             square = Square(0)
+
+    """-------- METHODS --------"""
+    def test_Square_str(self):
+        square = Square(1, 2, 3, 4)
+        result = "[Square] (4) 2/3 - 1"
+        self.assertEqual(str(square), result)
+
+    def test_Square_to_dictionary(self):
+        square = Square(1, 2, 3, 4)
+        result = {'id': 4, 'size': 1, 'x': 2, 'y': 3}
+        self.assertEqual(square.to_dictionary(), result)
