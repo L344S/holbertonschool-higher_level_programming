@@ -143,10 +143,9 @@ class TestRectangle(unittest.TestCase):
 
     def test_save_to_fnone(self):
         Rectangle.save_to_file(None)
-        self.assertTrue(os.path.exists(self.filename))
-        with open(self.filename, 'r') as file:
-            file_read = file.read()
-            self.assertEqual(file_read, "[]")
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
 
     def test_save_to_fempty(self):
         Rectangle.save_to_file([])
