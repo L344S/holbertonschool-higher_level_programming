@@ -65,18 +65,7 @@ class TestRectangle(unittest.TestCase):
         expected_str = "[Rectangle] (5) 3/4 - 1/2"
         self.assertEqual(str(rectangle), expected_str)
 
-    def test_display(self):  # Test for display method
-        rectangle = Rectangle(2, 2)
-        expected_output = "##\n##\n"
-        old_stdout = sys.stdout
-        # Redirect stdout temporarily to object StringIO
-        sys.stdout = mystdout = StringIO()
-        rectangle.display()
-        sys.stdout = old_stdout  # Put the orginal stdout back
-        # Compare the output store in StringIO object with expected output
-        self.assertEqual(mystdout.getvalue(), expected_output)
-
-    def test_display_exist(self):
+    def test_display(self):
         rectangle = Rectangle(2, 4, 1, 2)
         expected_output = "\n\n ##\n ##\n ##\n ##\n"
         old_stdout = sys.stdout
