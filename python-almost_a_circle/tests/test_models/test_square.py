@@ -79,3 +79,9 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square.x, 7)
         self.assertEqual(square.y, 8)
         self.assertEqual(square.id, 5)
+
+    def test_Square_create(self):
+        square = Square(1, 2, 3, 4)
+        square_dictionary = square.to_dictionary()
+        new_square = Square.create(**square_dictionary)
+        self.assertEqual(str(square), str(new_square))
