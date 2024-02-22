@@ -56,3 +56,7 @@ class TestSquare(unittest.TestCase):
     def test_Square_y_value(self):
         with self.assertRaises(ValueError):
             square = Square(1, 2, -3)
+    
+    def test_Square_size_value_0(self):
+        with self.assertRaises(ValueError):
+            square = Square(0)
