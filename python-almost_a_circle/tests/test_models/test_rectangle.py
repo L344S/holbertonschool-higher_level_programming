@@ -105,13 +105,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(mystdout.getvalue(), expected_output)
 
     def test_update(self):
-        rectangle = Rectangle(1, 1)
-        rectangle.update(89, 1, 2, 3, 4)
-        self.assertEqual(rectangle.id, 89)
-        self.assertEqual(rectangle.width, 1)
-        self.assertEqual(rectangle.height, 2)
-        self.assertEqual(rectangle.x, 3)
-        self.assertEqual(rectangle.y, 4)
+        rectangle = Rectangle(1, 2, 3, 4, 5)
+        rectangle.update(6, 7, 8, 9, 10)
+        self.assertEqual(rectangle.id, 6)
+        self.assertEqual(rectangle.width, 7)
+        self.assertEqual(rectangle.height, 8)
+        self.assertEqual(rectangle.x, 9)
+        self.assertEqual(rectangle.y, 10)
 
     def test_to_dictionary(self):
         rectangle = Rectangle(1, 2, 3, 4, 5)
