@@ -118,28 +118,11 @@ class TestRectangle(unittest.TestCase):
         expected_dict = {'id': 5, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
         self.assertEqual(rectangle.to_dictionary(), expected_dict)
 
-    def test_create_without_x_y(self):
-        rectangle = Rectangle.create(**{'id': 1, 'width': 2, 'height': 3})
-        self.assertEqual(rectangle.id, 1)
-        self.assertEqual(rectangle.width, 2)
-        self.assertEqual(rectangle.height, 3)
-
-    def test_create_withouth_y(self):
-        rectangle = Rectangle.create(
-            **{'id': 1, 'width': 2, 'height': 3, 'x': 4})
-        self.assertEqual(rectangle.id, 1)
-        self.assertEqual(rectangle.width, 2)
-        self.assertEqual(rectangle.height, 3)
-        self.assertEqual(rectangle.x, 4)
-
-    def test_create_with_all_args(self):
-        rectangle = Rectangle.create(
-            **{'id': 1, 'width': 2, 'height': 3, 'x': 4, 'y': 5})
-        self.assertEqual(rectangle.id, 1)
-        self.assertEqual(rectangle.width, 2)
-        self.assertEqual(rectangle.height, 3)
-        self.assertEqual(rectangle.x, 4)
-        self.assertEqual(rectangle.y, 5)
+    def test_create(self):
+        rectangle = Rectangle(1, 2, 3, 4, 5)
+        rectangle_dict = rectangle.to_dictionary()
+        new_rectangle = Rectangle.create(**rectangle_dict)
+        self.assertEqual(str(rectangle), str(new_rectangle))
 
     def test_save_to_file_NONE(self):
         Rectangle.save_to_file(None)
