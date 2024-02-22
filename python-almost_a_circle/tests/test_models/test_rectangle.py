@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Tests for the Base class"""
+"""Tests for the Rectancle class"""
+import os
+import json
 import sys
 import unittest
 from io import StringIO
@@ -72,4 +74,32 @@ class TestRectangle(unittest.TestCase):
         rectangle.display()
         sys.stdout = old_stdout  # Put the orginal stdout back
         # Compare the output store in StringIO object with expected output
+        self.assertEqual(mystdout.getvalue(), expected_output)
+
+    # Test for display method with w, h and x
+    def test_display_without_y(self):
+        rectangle = Rectangle(2, 2, 2)
+        expected_output = "  ##\n  ##\n"
+        old_stdout = sys.stdout
+        sys.stdout = mystdout = StringIO()
+        rectangle.display()
+        sys.stdout = old_stdout
+        self.assertEqual(mystdout.getvalue(), expected_output)
+
+    def test_display(self):  # Test for display method with w, h, x and y
+        rectangle = Rectangle(2, 2, 2, 2)
+        expected_output = "\n\n  ##\n  ##\n"
+        old_stdout = sys.stdout
+        sys.stdout = mystdout = StringIO()
+        rectangle.display()
+        sys.stdout = old_stdout
+        self.assertEqual(mystdout.getvalue(), expected_output)
+
+    def test_display_exist(self):
+        rect = Rectangle(2, 4, 1, 2)
+        expected_output = "\n\n ##\n ##\n ##\n ##\n"
+        old_stdout = sys.stdout
+        sys.stdout = mystdout = StringIO()
+        rect.display()
+        sys.stdout = old_stdout
         self.assertEqual(mystdout.getvalue(), expected_output)
