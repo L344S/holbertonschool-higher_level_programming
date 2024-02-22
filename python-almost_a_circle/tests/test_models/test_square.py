@@ -85,3 +85,9 @@ class TestSquare(unittest.TestCase):
         square_dictionary = square.to_dictionary()
         new_square = Square.create(**square_dictionary)
         self.assertEqual(str(square), str(new_square))
+
+    def test_Square_load_from_file(self):
+        square = Square(1, 2, 3, 4)
+        Square.save_to_file([square])
+        new_square = Square.load_from_file()
+        self.assertEqual(str(square), str(new_square[0]))
