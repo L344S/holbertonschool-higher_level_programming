@@ -9,20 +9,17 @@ if __name__ == "__main__":
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
-        db=sys.argv[3])
+        db=sys.argv[3]),
+    search = sys.argv[4].split(';')[0].strip("'")
     cur = connect.cursor()
-    cur.execute(f"SELECT c.name \
-        FROM cities AS c \
-        JOIN states AS s \
-            ON c.state_id = s.id \
-        WHERE s.name = '{sys.argv[4].split(";")[0].strip("'")}' \
-        ORDER BY c.id")
+    cur.execute("SELECT cities.name FROM cities \
+                JOIN states ON cities.state_id = states.id \
+                WHERE states.name=%s \
+                ORDER BY cities.id ASC", (search,)
+                )
     qrows = cur.fetchall()
 
-    idx = 0
+    cities = []
     for row in qrows:
-        if idx > 0:
-            print(", ", end="")
-        print(row[0], end="")
-        idx += 1
-    print()
+        cities.append("{}".format(row[0]))
+    print(", ".join(cities))
