@@ -7,9 +7,12 @@ from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
-    connect = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                           pool_pre_ping=True)
+    connect = create_engine(
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+            sys.argv[1],
+            sys.argv[2],
+            sys.argv[3]),
+        pool_pre_ping=True)
     Session = sessionmaker(bind=connect)
     session = Session()
     States = session.query(State).filter(State.name.like('%a%')).\
