@@ -9,7 +9,7 @@ if __name__ == "__main__":
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
-        db=sys.argv[3]),
+        db=sys.argv[3])
     search = sys.argv[4].split(';')[0].strip("'")
     cur = connect.cursor()
     cur.execute("SELECT cities.name FROM cities \
@@ -18,7 +18,6 @@ if __name__ == "__main__":
                 ORDER BY cities.id ASC", (search,)
                 )
     qrows = cur.fetchall()
-
     cities = []
     for row in qrows:
         cities.append("{}".format(row[0]))
