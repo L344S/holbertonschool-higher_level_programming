@@ -12,7 +12,8 @@ if __name__ == "__main__":
         db=sys.argv[3])
     cur = connect.cursor()
     cur.execute(
-        "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
+        "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC"
+        )
     qrows = cur.fetchall()
 
     for row in qrows:
