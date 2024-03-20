@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Task: List all states starting with 'N' from the database"""
+"""Task: List all states starting with 'N'"""
+
 import MySQLdb
 import sys
 
