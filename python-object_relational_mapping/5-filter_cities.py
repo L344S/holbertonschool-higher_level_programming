@@ -11,16 +11,18 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3])
     cur = connect.cursor()
-    cur.execute("""
-        SELECT cities.name 
-        FROM cities
-        JOIN states ON cities.state_id = states.id
-        WHERE states.name LIKE BINARY %(state_name)s
-        ORDER BY cities.id ASC
-    """, {
-        'state_name': sys.argv[4].split(';')[0].strip("'")
-    })
+    cur.execute(f"SELECT c.name \
+        FROM cities AS c \
+        JOIN states AS s \
+            ON c.state_id = s.id \
+        WHERE s.name = '{sys.argv[4].split(";")[0].strip("'")}' \
+        ORDER BY c.id")
     qrows = cur.fetchall()
 
-    if qrows is not None:
-        print(", ".join([row[0] for row in qrows]))
+    idx = 0
+    for row in qrows:
+        if idx > 0:
+            print(", ", end="")
+        print(row[0], end="")
+        idx += 1
+    print()
